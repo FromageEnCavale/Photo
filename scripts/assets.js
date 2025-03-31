@@ -1,7 +1,7 @@
 const assetImages = [
 
     {
-        path: 'assets/IMG_08.jpg',
+        path: 'assets/IMG_06.jpg',
         name: 'season',
         device: 'iphone 16 pro',
         camera: 'telephoto camera',
@@ -10,30 +10,6 @@ const assetImages = [
         aperture: 'f/2.8',
         shutterspeed: '1/529s',
         iso: 'ISO 50',
-        ev: '0ev'
-    },
-    {
-        path: 'assets/IMG_07.jpg',
-        name: 'blossom',
-        device: 'iphone 16 pro',
-        camera: 'ultra wide camera',
-        country: 'france',
-        focallength: '24mm',
-        aperture: 'f/2.2',
-        shutterspeed: '1/2222s',
-        iso: 'ISO 40',
-        ev: '0ev'
-    },
-    {
-        path: 'assets/IMG_06.jpg',
-        name: 'distinctive',
-        device: 'iphone 16 pro',
-        camera: 'fusion camera',
-        country: 'france',
-        focallength: '24mm',
-        aperture: 'f/1.78',
-        shutterspeed: '1/973s',
-        iso: 'ISO 100',
         ev: '0ev'
     },
     {
