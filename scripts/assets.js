@@ -1,18 +1,6 @@
 const assetImages = [
 
     {
-        path: 'assets/IMG_06.jpg',
-        name: 'man walking in snow',
-        device: 'iphone 16 pro',
-        camera: 'ultra wide camera',
-        country: 'france',
-        focallength: '14mm',
-        aperture: 'f/2.2',
-        shutterspeed: '1/435s',
-        iso: 'ISO 16',
-        ev: '0ev'
-    },
-    {
         path: 'assets/IMG_05.jpg',
         name: 'man on sand dune',
         device: 'iphone 16 pro',
