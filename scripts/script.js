@@ -82,11 +82,11 @@ function createImageElement(imageInfo) {
 
         { text: imageInfo.name },
 
-        { text: imageInfo.device },
+        { text: imageInfo.Make },
 
-        { text: imageInfo.camera },
+        { text: imageInfo.Model },
 
-        { text: imageInfo.country }
+        { text: imageInfo.DateTimeOriginal }
 
     ];
 
@@ -106,15 +106,15 @@ function createImageElement(imageInfo) {
 
     const secondFields = [
 
-        { text: imageInfo.focallength },
+        { text: imageInfo.FocalLengthIn35mmFilm },
 
-        { text: imageInfo.aperture },
+        { text: imageInfo.FNumber },
 
-        { text: imageInfo.shutterspeed },
+        { text: imageInfo.ExposureTime },
 
-        { text: imageInfo.iso },
+        { text: imageInfo.ISOSpeedRatings },
 
-        { text: imageInfo.ev }
+        { text: imageInfo.ExposureBiasValue }
 
     ];
 
