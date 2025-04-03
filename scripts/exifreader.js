@@ -134,7 +134,7 @@ function loadExistingImages() {
 
         const content = fs.readFileSync(config.outputFile, 'utf8');
 
-        const jsCode = content.replace(/^const\s+assetImages\s*=\s*!/, '').replace(/;\s*$/, '');
+        const jsCode = content.replace(/^const\s+assetImages\s*=\s*/, '').replace(/;\s*$/, '');
 
         return eval(jsCode);
 
