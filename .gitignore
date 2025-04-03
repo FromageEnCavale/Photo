@@ -21,7 +21,7 @@
 
 # Ignorer les fichiers d'auto build des datas EXIF
 package.json
-scripts/exifreader.js
+scripts/exif.js
 
 # Ignorer les fichiers de Node.js
 package-lock.json
