@@ -1,10 +1,4 @@
-
-/**
- * cd scripts/
- *
- * node exif.js /Users/julescoub/Documents/Projects/Production/Photo/assets
- */
-
+/*
 const fs = require('fs');
 
 const path = require('path');
@@ -306,3 +300,4 @@ if (args.length === 0) {
 }
 
 run(args[0]);
+*/
