@@ -1,4 +1,3 @@
-/*
 const fs = require('fs');
 
 const path = require('path');
@@ -300,4 +299,3 @@ if (args.length === 0) {
 }
 
 run(args[0]);
-*/

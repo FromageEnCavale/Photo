@@ -19,10 +19,6 @@
 .env.local
 .env.*.local
 
-# Ignorer les fichiers d'auto build des datas EXIF
-package.json
-scripts/exif.js
-
 # Ignorer les fichiers de Node.js
 package-lock.json
 node_modules/
