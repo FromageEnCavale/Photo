@@ -1,5 +1,17 @@
 const assetImages = [
   {
+    path: '../assets/IMG_0753.jpg',
+    name: 'pistil',
+    Make: 'Apple',
+    Model: 'iPhone 16 Pro',
+    DateTimeOriginal: '2025:04:05 17:42:23',
+    FocalLengthIn35mmFilm: '24mm',
+    FNumber: 'f/2.20',
+    ExposureTime: '1/294s',
+    ISOSpeedRatings: 'ISO 40',
+    ExposureBiasValue: '0ev'
+  },
+  {
     path: '../assets/IMG_0729.jpg',
     name: 'season',
     Make: 'Apple',

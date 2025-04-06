@@ -48,6 +48,26 @@ function extractExif(imagePath) {
 
         };
 
+        if (!specificTags.DateTimeOriginal || specificTags.DateTimeOriginal.startsWith('0000:')) {
+
+            const now = new Date();
+
+            const year = now.getFullYear();
+
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+
+            const day = String(now.getDate()).padStart(2, '0');
+
+            const hours = String(now.getHours()).padStart(2, '0');
+
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            specificTags.DateTimeOriginal = `${year}:${month}:${day} ${hours}:${minutes}:${seconds}`;
+
+        }
+
         if (specificTags.FocalLengthIn35mmFilm !== undefined) {
 
             specificTags.FocalLengthIn35mmFilm = specificTags.FocalLengthIn35mmFilm + "mm";
@@ -148,6 +168,50 @@ function loadExistingImages() {
 
 }
 
+function exifDateToJsDate(exifDate) {
+
+    if (!exifDate) return new Date(0);
+
+    const parts = exifDate.split(' ');
+
+    if (parts.length !== 2) return new Date(0);
+
+    const dateParts = parts[0].split(':');
+
+    const timeParts = parts[1].split(':');
+
+    if (dateParts.length !== 3 || timeParts.length !== 3) return new Date(0);
+
+    const year = parseInt(dateParts[0]);
+
+    const month = parseInt(dateParts[1]) - 1;
+
+    const day = parseInt(dateParts[2]);
+
+    const hour = parseInt(timeParts[0]);
+
+    const minute = parseInt(timeParts[1]);
+
+    const second = parseInt(timeParts[2]);
+
+    return new Date(year, month, day, hour, minute, second);
+
+}
+
+function sortImagesByDate(images) {
+
+    return images.sort((a, b) => {
+
+        const dateA = exifDateToJsDate(a.DateTimeOriginal);
+
+        const dateB = exifDateToJsDate(b.DateTimeOriginal);
+
+        return dateB - dateA;
+
+    });
+
+}
+
 function toJSLiteral(value, indent = 0) {
 
     const indentStr = ' '.repeat(indent);
@@ -218,7 +282,7 @@ function run(inputFolder) {
 
     if (!fs.existsSync(inputFolder)) {
 
-        console.error(`The file ${inputFolder} doesn't exist.`);
+        console.error(`The folder ${inputFolder} doesn't exist.`);
 
         process.exit(1);
 
@@ -250,7 +314,7 @@ function run(inputFolder) {
 
             if (Object.keys(exifData).length > 0) {
 
-                assetImages.unshift({
+                assetImages.push({
 
                     path: relativePath,
 
@@ -276,9 +340,11 @@ function run(inputFolder) {
 
     if (addedCount > 0) {
 
-        saveImages(assetImages);
+        const sortedImages = sortImagesByDate(assetImages);
 
-        console.log(`${addedCount} new images processed.`);
+        saveImages(sortedImages);
+
+        console.log(`${addedCount} new images processed and sorted by date.`);
 
     } else {
 
