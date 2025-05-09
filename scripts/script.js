@@ -1,34 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const mq = window.matchMedia('(min-width: 500px)');
-
     const container = document.getElementById('scroll-container');
 
-    function handleScrollFeature(e) {
+    async function fetchImages() {
 
-        e.preventDefault();
+        try {
 
-        const speedMultiplier = 10;
+            const res = await fetch('/api/images');
 
-        container.scrollLeft += e.deltaY * speedMultiplier;
+            let urls = await res.json();
+
+            urls = urls.reverse();
+
+            initGallery(urls);
+
+        } catch (err) {
+
+            console.error('Failed to load image list:', err);
+
+        }
+
+    }
+
+    function initGallery(urls) {
+
+        container.innerHTML = '';
+
+        urls.forEach(url => {
+
+            const div = document.createElement('div');
+
+            div.className = 'img-container';
+
+            const img = document.createElement('img');
+
+            img.setAttribute('data-src', url);
+
+            img.alt = 'img';
+
+            div.appendChild(img);
+
+            container.appendChild(div);
+
+        });
+
+        initSequentialLoading();
+
+        initHorizontalScroll();
 
     }
 
     function initSequentialLoading() {
 
-        const images = Array.from(document.querySelectorAll('img[data-src]'));
+        const imgs = Array.from(document.querySelectorAll('img[data-src]'));
 
         let index = 0;
 
-        const appearanceDelay = 250;
+        const delay = 250;
 
         function loadNext() {
 
-            if (index >= images.length) return;
+            if (index >= imgs.length) return;
 
-            const img = images[index++];
+            const img = imgs[index++];
 
-            const src = img.getAttribute('data-src');
+            const src = img.dataset.src;
 
             img.src = src;
 
@@ -40,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     loadNext();
 
-                }, appearanceDelay);
+                }, delay);
 
             }, {once: true});
 
@@ -58,24 +94,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    function updateScrollListener(evt) {
+    function initHorizontalScroll() {
 
-        if (evt.matches) {
+        const mq = window.matchMedia('(min-width:500px)');
 
-            container.addEventListener('wheel', handleScrollFeature, {passive: false});
+        function handleScroll(e) {
 
-        } else {
+            e.preventDefault();
 
-            container.removeEventListener('wheel', handleScrollFeature);
+            container.scrollLeft += e.deltaY * 10;
 
         }
 
+        function updateListener(e) {
+
+            if (e.matches) container.addEventListener('wheel', handleScroll, {passive: false});
+
+            else container.removeEventListener('wheel', handleScroll);
+
+        }
+
+        updateListener(mq);
+
+        mq.addEventListener('change', updateListener);
+
     }
 
-    initSequentialLoading();
-
-    updateScrollListener(mq);
-
-    mq.addEventListener('change', updateScrollListener);
+    fetchImages();
 
 });
