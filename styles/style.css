@@ -120,7 +120,7 @@ main {
 /* ----- FOOTER ----- */
 
 footer {
-
+    display: none;
 }
 
 /* ----- MEDIA QUERY ----- */
@@ -144,7 +144,12 @@ footer {
     }
 
     footer {
-
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: block;
+        padding: 10px;
+        opacity: 25%;
     }
 
 }
