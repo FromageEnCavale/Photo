@@ -27,7 +27,9 @@ export default function handler(req, res) {
             <title>Admin</title>
         </head>
         <body>
-            <script>window.open("${targetUrl}", "_blank");</script>
+            <script>
+                window.location.href = targetUrl;
+            </script>
         </body>
         </html>
 
