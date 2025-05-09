@@ -27,10 +27,8 @@ export default function handler(req, res) {
             <title>Admin</title>
         </head>
         <body>
-            <script defer>
-                if (location.pathname === '/admin') {
-                window.location.replace(targetUrl);
-                }
+            <script>
+                window.open("${targetUrl}");
             </script>
         </body>
         </html>
