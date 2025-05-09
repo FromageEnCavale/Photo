@@ -133,7 +133,7 @@ footer {
 
     main {
         flex-direction: row;
-        padding: 0 90vh 0 30vh;
+        padding: 0 30vh;
         scroll-behavior: smooth;
     }
 
