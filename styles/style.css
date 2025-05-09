@@ -149,7 +149,11 @@ footer {
         right: 0;
         display: block;
         padding: 10px;
-        opacity: 25%;
+        opacity: 0;
+    }
+
+    footer:hover {
+        opacity: 1;
     }
 
 }
