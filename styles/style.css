@@ -103,7 +103,7 @@ main {
 }
 
 .img-container img {
-    max-width: 100%;
+    max-width: 90vw;
     max-height: 90vh;
     opacity: 0;
     visibility: hidden;
