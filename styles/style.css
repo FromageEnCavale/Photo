@@ -137,6 +137,7 @@ footer {
     }
 
     .img-container img {
+        width: auto;
         max-height: 1000px;
         height: 90vh;
     }
