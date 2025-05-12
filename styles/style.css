@@ -81,7 +81,14 @@ body {
 /* ----- HEADER ----- */
 
 header {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    opacity: 0;
+}
 
+header a {
+    padding: 10px 14px;
 }
 
 /* ----- MAIN ----- */
@@ -119,15 +126,15 @@ main {
 /* ----- FOOTER ----- */
 
 footer {
-    display: none;
+
 }
 
 /* ----- MEDIA QUERY ----- */
 
 @media (min-width: 500px) {
 
-    header {
-
+    header:hover {
+        opacity: 1;
     }
 
     main {
@@ -143,16 +150,7 @@ footer {
     }
 
     footer {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        display: block;
-        padding: 10px;
-        opacity: 0;
-    }
 
-    footer:hover {
-        opacity: 1;
     }
 
 }
