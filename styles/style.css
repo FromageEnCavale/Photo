@@ -144,7 +144,7 @@ footer {
     main {
         flex-direction: row;
         padding: 0 30vh;
-        scroll-behavior: smooth;
+        /*scroll-behavior: smooth;*/
     }
 
     .img-container img {
