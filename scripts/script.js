@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             e.preventDefault();
 
-            container.scrollLeft += e.deltaY * 0.1;
+            container.scrollLeft += e.deltaY * 1;
 
         }
 
