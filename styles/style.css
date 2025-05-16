@@ -88,11 +88,12 @@ header a {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 10px;
     width: 100%;
     padding: 10px 0 30vh 0;
+    overflow: auto;
+    scrollbar-width: none;
 }
 
 .img-container {
