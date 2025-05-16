@@ -54,8 +54,6 @@ input, textarea, select, button {
 /* ----- BODY ----- */
 
 html, body {
-    width: 100%;
-    height: 100%;
     scrollbar-width: none;
 }
 
@@ -124,6 +122,11 @@ footer {
 /* ----- MEDIA QUERY ----- */
 
 @media (min-width: 500px) {
+
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
 
     body {
         flex-direction: row;
