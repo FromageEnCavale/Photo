@@ -70,7 +70,7 @@ body {
 /* ----- HEADER ----- */
 
 header {
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 0;
     opacity: 0;
@@ -89,7 +89,7 @@ main {
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding: 10px 0 30vh 0;
+    padding: 15vh 0;
     overflow: auto;
     scrollbar-width: none;
 }
@@ -139,7 +139,7 @@ footer {
     main {
         flex-direction: row;
         width: auto;
-        padding: 0 30vh;
+        padding: 0 15vw;
         scroll-behavior: smooth;
     }
 
