@@ -140,7 +140,6 @@ footer {
         flex-direction: row;
         width: auto;
         padding: 0 15vw;
-        /*scroll-behavior: smooth;*/
     }
 
     .img-container {
