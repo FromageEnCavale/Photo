@@ -1,3 +1,193 @@
+/*
+!* ----- RESET CSS ----- *!
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+}
+
+ul[role='list'], ol[role='list'] {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input, textarea, select {
+    font: inherit;
+    color: inherit;
+    border: none;
+    background: none;
+    appearance: none;
+}
+
+:focus {
+    outline: none;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+input, textarea, select, button {
+    border-radius: 0;
+}
+
+!* ----- COLORS ----- *!
+
+:root {
+    --background-light: #FFFFFF;
+    --background-dark: #000000;
+    --accent-light: #F5F5F5;
+    --accent-dark: #141414;
+    --text-light: #000000;
+    --text-dark: #FFFFFF;
+}
+
+!* ----- BODY ----- *!
+
+html, body {
+    scrollbar-width: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+    background-color: var(--background);
+    font-family: system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+!* ----- HEADER ----- *!
+
+header {
+    position: fixed;
+    top: 10px;
+    right: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+header a {
+    padding: 10px 14px;
+}
+
+!* ----- MAIN ----- *!
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15vh 0;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.img-container {
+    display: flex;
+    width: 90vw;
+}
+
+.img-container img {
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.95);
+    transition: visibility 0s, opacity 1.5s ease, transform 0.5s ease;
+}
+
+.img-container img.loaded {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+!* ----- FOOTER ----- *!
+
+footer {
+
+}
+
+!* ----- MEDIA QUERY ----- *!
+
+@media (min-width: 500px) {
+
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        flex-direction: row;
+    }
+
+    header:hover {
+        opacity: 1;
+    }
+
+    main {
+        flex-direction: row;
+        width: auto;
+        padding: 0 15vw;
+    }
+
+    .img-container {
+        width: auto;
+        max-height: 1000px;
+        height: 90vh;
+    }
+
+    .img-container img {
+        width: auto;
+        height: 100%;
+    }
+
+    footer {
+
+    }
+
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .ex:hover {
+        background-color: var(--accent);
+    }
+
+}
+
+@media (prefers-color-scheme: light) {
+
+    :root {
+        --background: var(--background-light);
+        --accent: var(--accent-light);
+        --text: var(--text-light);
+    }
+
+}
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --background: var(--background-dark);
+        --accent: var(--accent-dark);
+        --text: var(--text-dark);
+    }
+
+}*/
+
 /* ----- RESET CSS ----- */
 
 *, *::before, *::after {
@@ -45,8 +235,8 @@ input, textarea, select, button {
 :root {
     --background-light: #FFFFFF;
     --background-dark: #000000;
-    --accent-light: #F5F5F5;
-    --accent-dark: #141414;
+    --accent-light: rgba(255, 255, 255, 0.25);
+    --accent-dark: rgba(0, 0, 0, 0.25);
     --text-light: #000000;
     --text-dark: #FFFFFF;
 }
@@ -54,12 +244,19 @@ input, textarea, select, button {
 /* ----- BODY ----- */
 
 html, body {
+    width: 100%;
+    height: 100%;
     scrollbar-width: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    padding: 0 10px 10px 10px;
     color: var(--text);
     background-color: var(--background);
     font-family: system-ui, sans-serif;
@@ -70,15 +267,25 @@ body {
 /* ----- HEADER ----- */
 
 header {
-    position: fixed;
-    top: 10px;
-    right: 0;
-    opacity: 0;
-    z-index: 1;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
 }
 
-header a {
-    padding: 10px 14px;
+.invisible-offscreen {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.title {
+    max-width: 85%;
+    max-height: 75px;
 }
 
 /* ----- MAIN ----- */
@@ -86,17 +293,15 @@ header a {
 main {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 10px;
-    width: 100%;
-    padding: 15vh 0;
-    overflow: auto;
+    height: 100%;
+    border-radius: 22px;
+    overflow: scroll;
     scrollbar-width: none;
 }
 
 .img-container {
     display: flex;
-    width: 90vw;
 }
 
 .img-container img {
@@ -116,7 +321,46 @@ main {
 /* ----- FOOTER ----- */
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+}
 
+.contact-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    background-color: var(--accent);
+    transition: all 0.1s ease-out;
+    font-weight: 500;
+}
+
+.contact-button:hover {
+    gap: 10px;
+    transition: all 0.1s ease-out;
+}
+
+.arrow-svg-container {
+    width: 0;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.1s ease-out;
+}
+
+.arrow-svg {
+    stroke: var(--text);
+}
+
+.contact-button:hover .arrow-svg-container {
+    width: 10px;
+    opacity: 1;
 }
 
 /* ----- MEDIA QUERY ----- */
@@ -124,28 +368,19 @@ footer {
 @media (min-width: 500px) {
 
     html, body {
-        width: 100%;
-        height: 100%;
+
     }
 
     body {
-        flex-direction: row;
+
     }
 
-    header:hover {
-        opacity: 1;
+    header {
+
     }
 
     main {
         flex-direction: row;
-        width: auto;
-        padding: 0 15vw;
-    }
-
-    .img-container {
-        width: auto;
-        max-height: 1000px;
-        height: 90vh;
     }
 
     .img-container img {
