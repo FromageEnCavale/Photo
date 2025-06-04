@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             img.setAttribute('data-src', url);
 
+            img.setAttribute('draggable', 'false');
+
             img.alt = 'img';
 
             div.appendChild(img);

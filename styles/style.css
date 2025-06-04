@@ -342,11 +342,6 @@ footer {
     font-weight: 500;
 }
 
-.contact-button:hover {
-    gap: 10px;
-    transition: all 0.1s ease-out;
-}
-
 .arrow-svg-container {
     width: 0;
     height: 100%;
@@ -358,26 +353,9 @@ footer {
     stroke: var(--text);
 }
 
-.contact-button:hover .arrow-svg-container {
-    width: 10px;
-    opacity: 1;
-}
-
 /* ----- MEDIA QUERY ----- */
 
 @media (min-width: 500px) {
-
-    html, body {
-
-    }
-
-    body {
-
-    }
-
-    header {
-
-    }
 
     main {
         flex-direction: row;
@@ -388,16 +366,18 @@ footer {
         height: 100%;
     }
 
-    footer {
-
-    }
-
 }
 
 @media (hover: hover) and (pointer: fine) {
 
-    .ex:hover {
-        background-color: var(--accent);
+    .contact-button:hover {
+        gap: 10px;
+        transition: all 0.1s ease-out;
+    }
+
+    .contact-button:hover .arrow-svg-container {
+        width: 10px;
+        opacity: 1;
     }
 
 }
