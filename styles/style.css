@@ -45,8 +45,8 @@ input, textarea, select, button {
 :root {
     --background-light: #FFFFFF;
     --background-dark: #000000;
-    --accent-light: rgba(255, 255, 255, 0.25);
-    --accent-dark: rgba(0, 0, 0, 0.25);
+    /*--accent-light: #F5F5F5;
+    --accent-dark: #141414;*/
     --text-light: #000000;
     --text-dark: #FFFFFF;
 }
@@ -54,8 +54,6 @@ input, textarea, select, button {
 /* ----- BODY ----- */
 
 html, body {
-    width: 100%;
-    height: 100%;
     scrollbar-width: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -66,7 +64,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    padding: 0 10px 10px 10px;
+    padding: 0 10px;
     color: var(--text);
     background-color: var(--background);
     font-family: system-ui, sans-serif;
@@ -83,6 +81,8 @@ header {
     justify-content: center;
     align-items: center;
     padding: 10px 0;
+    background-color: var(--background);
+    z-index: 1;
 }
 
 .invisible-offscreen {
@@ -94,7 +94,7 @@ header {
 }
 
 .title {
-    max-width: 85%;
+    max-width: 100%;
     max-height: 75px;
 }
 
@@ -104,10 +104,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: 100%;
-    border-radius: 22px;
-    overflow: scroll;
-    scrollbar-width: none;
+    padding-bottom: 10px;
 }
 
 .img-container {
@@ -133,42 +130,26 @@ main {
 footer {
     position: fixed;
     bottom: 0;
-    left: 0;
-    padding: 20px;
-}
-
-.contact-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    padding: 10px 14px;
-    border-radius: 12px;
-    white-space: nowrap;
-    cursor: pointer;
-    backdrop-filter: blur(12px);
-    background-color: var(--accent);
-    transition: all 0.1s ease-out;
-    font-weight: 500;
-}
-
-.arrow-svg-container {
-    width: 0;
-    height: 100%;
-    opacity: 0;
-    transition: all 0.1s ease-out;
-}
-
-.arrow-svg {
-    stroke: var(--text);
+    width: 100%;
+    height: 10px;
+    background-color: var(--background);
+    z-index: 1;
 }
 
 /* ----- MEDIA QUERY ----- */
 
 @media (min-width: 500px) {
 
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
+
     main {
         flex-direction: row;
+        height: 100%;
+        overflow: scroll;
+        scrollbar-width: none;
     }
 
     .img-container img {
@@ -176,27 +157,19 @@ footer {
         height: 100%;
     }
 
-}
-
-@media (hover: hover) and (pointer: fine) {
-
-    .contact-button:hover {
-        gap: 10px;
-        transition: all 0.1s ease-out;
-    }
-
-    .contact-button:hover .arrow-svg-container {
-        width: 10px;
-        opacity: 1;
+    footer {
+        display: none;
     }
 
 }
+
+@media (hover: hover) and (pointer: fine) {}
 
 @media (prefers-color-scheme: light) {
 
     :root {
         --background: var(--background-light);
-        --accent: var(--accent-light);
+        /*--accent: var(--accent-light);*/
         --text: var(--text-light);
     }
 
@@ -206,7 +179,7 @@ footer {
 
     :root {
         --background: var(--background-dark);
-        --accent: var(--accent-dark);
+        /*--accent: var(--accent-dark);*/
         --text: var(--text-dark);
     }
 
