@@ -85,14 +85,6 @@ header {
     z-index: 1;
 }
 
-.invisible-offscreen {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
-
 .title {
     max-width: 85%;
     max-height: 75px;
