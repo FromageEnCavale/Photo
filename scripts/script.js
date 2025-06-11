@@ -48,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         initSequentialLoading();
 
+        /*
         initHorizontalScroll();
+        */
 
     }
 
