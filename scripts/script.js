@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    /*
     function initHorizontalScroll() {
 
         const mq = window.matchMedia('(min-width:500px)');
@@ -121,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mq.addEventListener('change', updateListener);
 
     }
+    */
 
     fetchImages();
 
